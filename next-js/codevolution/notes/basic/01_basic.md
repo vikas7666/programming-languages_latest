@@ -22,9 +22,6 @@ that enable you to build production-ready applications:
 npx create-next-app@latest
 ```
 
-#### Create a project command 
-npx create-next-app@latest
-
 # React Server Components (RSC)
 
 React Server Components is a new architecture that was introduced by the React team and quickly adopted by Next.js
@@ -42,7 +39,7 @@ This architecture introduces a new approach to creating React components by divi
 
 ## Client Components
 
-- To create a Client component, you'll need to add the "use client" directive at the top of your component file
+- To create a Client component, you'll need to add the **"use client"** directive at the top of your component file
 - While Client components can't perform server-side tasks like reading files, they can use hooks and handle user interactions
 - Client components are the traditional React components you're already familiar with from previous versions of React
 
@@ -50,12 +47,13 @@ This architecture introduces a new approach to creating React components by divi
 - using folder name start with _
 
 ## Route Group folder 
+``` next
 (auth)  Wrap folder 
-
+```
 ## Layout 
 Pages are routes specific UI component
 A layout is ui that shared between multiple pages in your app
 
 ### how to create a layout 
-Default export a React component from a layout.js or layout.tsx file
-That component takes a children prop, which Next.js will populate with your page content
+- Default export a React component from a layout.js or layout.tsx file
+- That component takes a children prop, which Next.js will populate with your page content
