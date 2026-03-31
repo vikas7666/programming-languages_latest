@@ -1,3 +1,0 @@
-At Workspace    => Click NSE Website
-At project home => Click at tracker 
-At Right Corner  =>Click Create Artifact

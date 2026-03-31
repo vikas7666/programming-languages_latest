@@ -1,7 +1,0 @@
-POST https://freeapi.miniprojectideas.com/api/User/Login
-content-type: application/json
-
-{
-  "EmailId": "dummy111@gmail.com",
-  "Password": "abc11"
-}
