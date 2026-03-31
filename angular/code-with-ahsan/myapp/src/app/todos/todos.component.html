@@ -1,0 +1,14 @@
+<p *ngIf ="!todoItems().length">Loading</p>
+
+<div *ngIf ="todoItems() && todoItems().length > 0; else noTodos">
+    <ul>
+        <li *ngFor = "let todo of todoItems()">
+            <span>{{todo.title | uppercase}}</span>
+        </li>
+    </ul>
+</div> 
+  
+
+<ng-template #noTodos>
+    <p>No todos found</p>
+</ng-template>

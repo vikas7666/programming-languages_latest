@@ -1,0 +1,8 @@
+<p>home works!</p>
+<app-greeting [message] = "homeMessage()"></app-greeting> 
+<app-counter />
+ <!-- but ky hum log square bracket use kar rahe hai, if we not used square bracket then we need to pass like js  -->
+
+<app-greeting message = homeMessage()></app-greeting> 
+
+<input type="text" placeholder="type something" (keyup) ="keyUpHandler($event)">
