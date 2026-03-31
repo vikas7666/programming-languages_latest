@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <h2>Learn ajax Jquery</h2>
+    <div id="output"></div>
+    <form id="myform">
+        <input type="text" name="first" value="vikas" id="first"/><br>
+        <input type="text" name="last" value="shukla" id="last" /><br>    
+        <input type="submit" value="submit data" id="my_form"/>
+    </form>
+
+    <script>
+        $(document).ready(function () {
+            //$('#myform').submit(function (e) {
+            //    e.preventDefault();
+            //    var first = $('input[name="first"]').val();
+            //    var last = $('input[name="last"]').val();
+            //   // console.log(first, last);
+            //    var url = 'http://s179017901.onlinehome.us/discoveryvip/';
+            //    $.post(url, {
+            //        first: first,
+            //        last: last
+            //    }).done(function (data) {
+            //        console.log(data);
+            //        })
+            //    console.log(first, last);
+            $('#my_form').click(function (e) {
+                //e.preventDefault();
+                //var url = 'http://s179017901.onlinehome.us/discoveryvip/';
+                //$.post(url, {
+                //    FirstName:$('input[name="first"]').val() ,  
+                //    LastName: $('input[name="last"]').val()
+                //}).done(function (data) {
+                //    console.log(data);
+                //})
+                e.preventDefault();
+                var url = 'http://s179017901.onlinehome.us/discoveryvip/';
+                //var myData = {
+                //    FirstName: $('input[name="first"]').val(),
+                //    LastName: $('input[name="last"]').val()
+                //}
+                var myData = {
+                    FirstName: $('#first').val(),
+                    LastName: $('#last').val()
+                }
+                console.log(myData)
+                $.post(url, myData).done(function (data) {
+                    console.log(data);
+                    $('h2').html(data.FirstName + ' ' + data.LastName);
+                })
+            });
+        });
+    </script>
+</body>
+
+</html>

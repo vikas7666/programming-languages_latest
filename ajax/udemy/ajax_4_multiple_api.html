@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="output"></div>
+    <button id="clickMe">Click Here</button>
+
+    <script>
+        $(document).ready(function () {
+            $('#clickMe').click(webData);
+
+            function webData() {
+                debugger;   
+                var url = 'https://api.spacexdata.com/v2/launches'
+               // $.get(url, output);
+                $.getJSON(url, output);
+            }
+            function output(data) {
+                debugger; 
+                //var html;
+                var html ="";
+                $.each(data, function(k,v) {
+                   // html += 'Flight_Number' + v.flight_number + '</br>',
+                   // html += 'Details' + v.details+'</br>'
+                    html += '<h3>Flight_Number' + v.flight_number + '</h3>',
+                    html += '<p>Details' + v.details+'</p>'
+                })
+                console.log(data);
+                $('#output').html(html);
+            }
+        });
+    </script>
+</body>
+
+</html>

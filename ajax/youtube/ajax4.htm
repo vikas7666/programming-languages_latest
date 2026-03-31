@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>php processing</title>
+</head>
+<body>
+    <button id="button">Get data</button>
+    <h2>AJAx get for</h2>
+    <form id ="getform">
+        <input type="text" name="name" id="name1">
+        <input type="submit" value="submit">
+    </form>
+</body>
+<script>
+//    / document.getElementById('button').addEventListener('click',loaddata);
+
+    document.getElementById('getform').addEventListener('submit',getName);
+
+    function getName(){
+      
+        event.preventDefault();
+        var name = document.getElementById('name1').value;
+    
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET','process.php',true)
+        xhr.onload = function(){
+            console.log(this.responseText);
+        }
+        xhr.send();
+    }
+</script>
+</html>
