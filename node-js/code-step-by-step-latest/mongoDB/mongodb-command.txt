@@ -1,0 +1,45 @@
+// Verify mongo installed in laptop
+
+// earlier was mongo command but now we have mongosh
+mongo => Not working in current version
+
+mongosh => we can find version from using cmd
+
+***************************************** database *******************************************
+show dbs;  => show databases;
+
+// create db
+use db youtube => database created but database will not show bcz db not having any collection 
+
+// drop database
+db.dropDatabase();
+
+**************************************** collection *******************************************
+// create collection
+db.createCollection('videos');
+db.createCollection('playlist')
+
+to check collection 
+show collection  
+
+// Drop collection
+db.videos.drop();
+
+**************************************** collection Insertion data **********************************************
+
+db.products.insertOne({name:'m-40',brand:'samsung',price:25})
+
+// here i have put wrong proce name then it will create a new column
+db.products.insertOne({name:'m-42',brand:'Nokia',proce:'32'})
+
+**************************************** Show inside collection data **********************************************
+db.products.find()  // It will show entire data
+
+**************************************** update inside collection data **********************************************
+// how many record we want to update updateOne or Updatemany we have 2  function
+// in first bracket ({ which one we want to upadte }, {set: {New Updated content}})
+db.products.updateOne({name:'m-42'},{$set:{name:'m-43'}});
+
+**************************************** delete inside collection data **********************************************
+// Always check acknowledge Number
+db.products.deleteOne({name:'m-40'})
