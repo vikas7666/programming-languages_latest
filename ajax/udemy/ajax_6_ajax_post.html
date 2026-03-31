@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="output"></div>
+    <form id="myform">
+        <input type="text" name="first" value="laurence" /><br>
+        <input type="text" name="last" value="svekis" /><br>    
+        <input type="submit" value="submit data"/>
+    </form>
+
+    <script>
+        $(document).ready(function () {
+            $('#myform').submit(function (e) {
+                e.preventDefault();
+                var myData = {
+                    FirstName: $('input[name="first"]').val(),
+                    LastName: $('input[name="last"]').val()
+                }
+                var url = 'http://s179017901.onlinehome.us/discoveryvip/';
+                $.ajax({
+                    url: url,
+                    type:"post",
+                    data: myData,
+                    success: function (data) {
+                        console.log(data);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

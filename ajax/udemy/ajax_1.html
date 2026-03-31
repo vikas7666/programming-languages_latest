@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="output"></div>
+    <button id="clickMe">Click Here</button>
+
+    <script>
+        /* $('#clickMe').click(function() {
+            // console.log('hello');
+             webData();
+         });*/
+        // oTher way call a function
+        /* $('#clickMe').click(webData);
+
+         function webData(){
+             console.log('web data');
+         }*/
+        $(document).ready(function () {
+            $('#clickMe').click(webData);
+
+            function webData() {
+                $.ajax({
+                    url: 'https://jsonplaceholder.typicode.com/posts/1',
+                })
+                    .done(output)
+            }
+            function output(data) {
+                console.log(data);
+            }
+        });
+    </script>
+</body>
+
+</html>
