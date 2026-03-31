@@ -1,0 +1,76 @@
+// How to create a new element in DOM 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        .bg-black{
+            background-color: #212121;
+            color: #fff;
+            margin: 0;
+        }
+    </style>
+</head>
+<body class="bg-black">
+    <h1 id="title"  class="heading">Dom Learning <span style="display: none;">test text</span></h1>
+    <div>
+        <div class="parent">
+            <div class="day">Monday</div>
+            <div class="day">Tuesday</div>
+            <div class="day">Wednesday</div>
+            <div class="day">Thursday</div>
+        </div>
+    </div>
+
+    <script>
+        const parent = document.querySelector('.parent')
+        // console.log(parent)
+        // console.log(parent.children);
+        // console.log(parent.children[1]);
+        // console.log(parent.children[1].innerHTML);
+    
+        // for (let i = 0; i < parent.children.length; i++) {
+        //     const element = parent.children[i].innerHTML;
+        //     console.log(element)
+        // }
+       /*  output
+        Monday
+         Tuesday
+         Wednesday
+         Thursday */
+
+     parent.children[1].style.color ="orange"
+    // console.log(parent.firstElementChild);
+    // <div class="day">Monday</div>
+
+    const dayOne  = document.querySelector('.day');
+    //console.log(dayOne);
+     // <div class="day">Monday</div>
+
+    // console.log(dayOne.parentElement);
+ /*     <div class="parent">
+            <div class="day">Monday</div>
+            <div class="day" style="color: orange;">Tuesday</div>
+            <div class="day">Wednesday</div>
+            <div class="day">Thursday</div>
+        </div> */
+
+   // console.log(dayOne.nextElementSibling);
+    // <div class="day" style="color: orange;">Tuesday</div>
+    
+    console.log("Nodes",parent.childNodes);
+    // in childnotes and line break also count
+ // NodeList(9) [text, div.day, text, div.day, text, div.day, text, div.day, text]
+
+ 
+    </script>
+</body>
+</html>
+

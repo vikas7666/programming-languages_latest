@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>Learn Javascrpt with chai aur code</h3>
+    <button id="stop">Stop</button>
+    <script>
+        // setTimeout(() => {
+        //     console.log('HI')
+        // }, 2000);
+
+        // setTimeout( function (){
+
+        // },1000)
+
+        // let vikas = function () {
+        //     console.log(hello)
+        // }
+        const changeText = function(){
+        document.querySelector('h3').innerHTML = 'Best JS Series'
+       }
+
+       const clearChangeTime  =  setTimeout(changeText, 2000)
+
+       let submit  = document.querySelector('button');
+
+       submit.addEventListener('click',function(){
+        clearInterval(clearChangeTime,2000);
+       })
+        
+       
+
+    </script>
+</body>
+
+</html>
