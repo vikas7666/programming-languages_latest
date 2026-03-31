@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- if we want to add ejs file or then we use <%-  %> -->
+    <%- include('header') %>
+
+    <p>Welcome <%= user.name %> <%= user.surname %></p>
+
+    <!-- If we have variable then we will use as <%=  %> -->
+    <ul> <% user.skill.forEach((item) =>{ %>
+       <li><%= item %></li>
+    <% })%></ul>
+
+    <!-- Plain Js code exceution  -->
+    <% console.log('Hello world') %>
+
+    <!-- if we want to use variable  -->
+   
+    <h2><%= userName %></h2> 
+
+    
+</body>
+</html>
