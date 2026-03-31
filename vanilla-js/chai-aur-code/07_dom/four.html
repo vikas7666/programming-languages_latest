@@ -1,0 +1,43 @@
+<!-- Edit and remove elements in DOM | chai aur 34 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        .bg-black{
+            background-color: #212121;
+            color: #fff;
+            margin: 0;
+        }
+    </style>
+</head>
+<body class="bg-black">
+    <ul class="languagelist">
+        <li>Javascript</li>
+    </ul>
+
+    <script>
+        function addlanguage(lang){
+            let languageName = document.createElement('li');
+            let languagelist = document.querySelector('.languagelist');
+           
+            languagelist.appendChild(languageName);
+            languageName.innerText = lang;
+        }
+        addlanguage('hindi')
+
+        // optamize way 
+        function name(languageName) {
+           const li =  document.createElement('li');
+           li.appendChild(document.createTextNode(langName));
+           document.querySelector('.language').appendChild(li)
+        }
+    </script>
+</body>
+</html>
