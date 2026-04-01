@@ -3,6 +3,12 @@
 - React is only a **UI library**, not a full framework
 - It is not fully featured to create a production-ready application on its own
 - Missing built-in solutions for things like **routing**, data fetching, etc.
+- react version : 19.0.
+- next js : 19.0
+
+## How project render 
+-   **layout.tsx** root component, first load hotaa hai then o page.tsx app folder ko dekhtaa hai in this 
+     case we have Home Component, then its render into root component
 
 ## What Next.js Provides
 
@@ -35,21 +41,29 @@ This architecture introduces a new approach to creating React components by divi
 
 - By default, Next.js treats all components as Server components
 - These components can perform server-side tasks like reading files or fetching data directly from a database
-- The trade-off is that they can't use React hooks or handle user interactions
+- The trade-off is that they can't use **React hooks** or **handle user interactions**
 
 ## Client Components
 
 - To create a Client component, you'll need to add the **"use client"** directive at the top of your component file
-- While Client components can't perform server-side tasks like reading files, they can use hooks and handle user interactions
+- While Client components can't perform server-side tasks like reading files, they can use **hooks and handle ** user interactions
 - Client components are the traditional React components you're already familiar with from previous versions of React
 
-## how to make a folder a private 
-- using folder name start with _
+# Routing
+Next.js has a file-system based routing system (inside app folder all the folder become route)
+URLs you can access in your browser are determined by how you organize your files and folders in your code
 
-## Route Group folder 
-``` next
-(auth)  Wrap folder 
-```
+## Routing conventions
+- All routes must live inside the **app** folder
+- Route files must be named either **page.js** or **page.tsx**
+- Each folder represents a segment of the URL path
+   When these conventions are followed, the file automatically becomes available as a route.
+
+## next js folder conventions
+- `()` Group a folder
+- `_` folder name start with underscore
+- `[] ` folder must start with for dyanmic segment routes 
+
 ## Layout 
 Pages are routes specific UI component
 A layout is ui that shared between multiple pages in your app
