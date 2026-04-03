@@ -6,3 +6,6 @@ blog folder
 
 Next.js 15 Tutorial - 7 - Dynamic Routes
 products
+
+Next.js 15 Tutorial - 13 - Route Groups
+(auth)

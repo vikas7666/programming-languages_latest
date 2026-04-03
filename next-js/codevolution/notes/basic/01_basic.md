@@ -61,13 +61,88 @@ URLs you can access in your browser are determined by how you organize your file
 
 ## next js folder conventions
 - `()` Group a folder
-- `_` folder name start with underscore
-- `[] ` folder must start with for dyanmic segment routes 
+- `_` Private folder name start with underscore(_lib)
+- `[] `dyanmic segment routes 
+- `[...slug]` we can make any number of url such as docs/abc docs/abcc12 adn we can read it
+
+## notFound() 
+ - not-found.tsx must be same name.
+ - we can crete as many as want not-found in our sub pages so that next fetch from nearby folder 
+ -  or we can use ` notFound()` function by importing 
+ ` import { usePathname } from "next/navigation`
+ - notfound component does not accept props
+ - Hook can we only use in clent component otherwise we need to define `useClient()` at tops of page
+
+## - 11 - File Colocation
+A Route can be only publically accesble when we add folder inside page.tsx or page.js
+Note : if parent having a folder but doesnot have page.tsx, then route will work for both parent and child 
+
+## private folder 
+- this folder is just for internal stuff - don't include it in the routing system."
+- The folder and all its subfolders are excluded from routing
+- (_lib) Add an underscore at the start of the folder name
+- If you actually want an underscore in your URL, use "%5F" instead. That's just
+the URL-encoded version of an underscore.
+
+# - 13 - Route Groups
+- (auth) : auth will not work in browser only login logout register e.g /login /logout and /register
+ auth is just for wrap a releted group form element 
 
 ## Layout 
-Pages are routes specific UI component
-A layout is ui that shared between multiple pages in your app
+- Pages are routes specific UI component
+- A layout is ui that shared between multiple pages in your app
+- e.g header content and footer 
+- In app folder we have to must one layout folder , it is not optional , even if we deleted then also next will regnerated
+- Every layount need a children props 
+- When Layout.tsx render then it consider app.tsx will become an children
 
 ### how to create a layout 
 - Default export a React component from a layout.js or layout.tsx file
 - That component takes a children prop, which Next.js will populate with your page content
+-  here we can give any function name and accept an argument such as children 
+
+### Nested Layouts and how to create a layout 
+` export default function ProductDetailLayout({ children, }: { children: React.ReactNode }) {
+    return <>
+        {children}
+        <h2>feature Product of </h2>
+    </>
+}
+`
+### Multiple Root Layouts
+- scenrio - header and footer is applciable for inside page but not form section
+
+### Route Group uses:
+Organize our project structure without affecting URLs
+Apply layouts selectively to specific parts of our app
+
+## Routing Metadata
+
+- The Metadata API in Next.js is a powerful feature that lets us define metadata for each page
+- Metadata ensures our content looks great when it's shared or searh engines
+Two ways to handle metadata in layout.tsx or page.tsx files:
+1. export a **static metadata object**
+2. export a dynamic **generateMetadata** function
+3 . we cannot use both at a same time such as a static and dyanmic genertor
+
+### static metadata
+`export const metadata = {
+    title: 'About US',
+    description: 'About us page information'
+}
+`
+# Configuring metadata
+Metadata rules
+- Both **layout.tsx** and **page.tsx** can export metadata.
+- Layout metadata applies to all its pages, while page metadata is specific to that page
+- Metadata follows a top-down order, starting from the root level
+- When metadata exists in multiple places along a route, they merge together, with
+  page metadata overriding layout metadata for matching properties
+
+  ### Metadata type
+  -  metadata have default template absolute
+  default - all over the app if we have not set yet
+  template - "%s  | vikas" %s template will render in all the children component
+  absolute  - from child only show child not anythings else means overides parent title
+
+  Next.js 15 Tutorial - 19 - Link Component

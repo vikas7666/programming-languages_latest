@@ -1,10 +1,14 @@
-export default function AuthLayout({children,} : {children : React.ReactNode}){
+export default function L7({
+    children,
+}: {
+    children: React.ReactNode
+}) {
     return (
-        <html lang="en">
-            <body>
-                {children}
-                <footer style={{backgroundColor:'pink'}}>Auth Footer</footer>
-            </body>
-        </html>
+        <>
+            {children}
+            <footer style={{ backgroundColor: 'pink', color: 'black' }}>
+                Auth Footer
+            </footer>
+        </>
     )
 }

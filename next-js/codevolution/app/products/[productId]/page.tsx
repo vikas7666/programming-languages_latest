@@ -1,24 +1,45 @@
-// import { Metadata } from "next";
-
-// // ✅ Correct type for Next.js 15 — params is a Promise
-// type Props = {
-//   params: Promise<{ productId: string }>;
-// };
-
-// // ✅ Await params before accessing productId
-// export const generateMetadata = async ({ params }: Props): Promise<Metadata> => {
-//   const { productId } = await params;
-//   return {
-//     title: `Product ${productId}`,
-//   };
-// };
+import { Metadata } from "next";
 
 // ✅ Same Props type can be reused here
 // params comes from the URL, it's a Promise so we must await it to get productId
 export default async function ProductDetails({ params }: { params: Promise<{ productId: string }> }) {
-  const { productId } = await params;
-  return <h1>Detail about Product {productId}</h1>
+   const { productId } = await params;
+   return <h1>Root Page.tsx : Detail about Product {productId}</h1>
 }
+
+type Props = {
+   params: Promise<{ productId: string }>
+}
+
+export const generateMetadata = async ({ params, }: Props): Promise<Metadata> => {
+   const id = (await params).productId
+   const title = await new Promise((resolve) => {
+      setTimeout(() => {
+         resolve(`Iphone ${id}`)
+      })
+   })
+   return {
+      title: `Product ${title}`
+   }
+}
+
+/* 
+export const generateMetadata = async ({ params, }: Props): Promise<Metadata> => {
+👉 “I’m exporting an async function called generateMetadata
+👉 It takes an object of type Props
+👉 I extract params from it
+👉 And it returns a Promise that resolves to Metadata”
+
+“This function will eventually give me a Metadata object.”
+
+Step B: What does ({ params }: Props) mean?
+This is object destructuring + type annotation
+
+const generateMetadata = async (props: Props) => {
+   const params = props.params
+}
+
+*/
 
 /* 
 app/
@@ -73,3 +94,35 @@ app/products/[productId]/page.tsx
 
    export default async function ProductDetails({ params }: any) { beginner
 */
+
+// Step 1: Normal object
+const user = {
+   name: "Rahul",
+   age: 25
+}
+
+// Without extracting (long way)
+function printUser(userObj: any) {
+   console.log(userObj.name)  // Rahul
+}
+
+/* 
+async ({ params }: Props)
+“Take params out of the object of type Props”
+*/
+
+type Props1 = {
+   params: { productId: string }
+}
+// ❌ Without extracting
+function getId(props: Props1) {
+   console.log(props.params.productId)
+}
+// Even deeper extraction
+// function getId({ params: { productId } }: Props) {
+//    console.log(productId)
+// }
+
+// ({ params }: Props)
+// “This function receives an object, and I immediately take out the params property from it.”
+
