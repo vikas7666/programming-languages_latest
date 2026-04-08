@@ -145,4 +145,60 @@ Metadata rules
   template - "%s  | vikas" %s template will render in all the children component
   absolute  - from child only show child not anythings else means overides parent title
 
-  Next.js 15 Tutorial - 19 - Link Component
+  ## Link Component
+  `import Link from "next/link";`
+  For client-side navigation, Next.js gives us the <Link> component
+  The `<Link>` component is a React component that extends the HTML `<a>` element, and it's the primary way to navigate between routes in Next.js
+  <!-- <Link href="" replace>blog Page {reviewId}</Link>  --> here we have used replace if we don't want
+  - Active Lik
+
+## params and searchParams
+For a given URL,
+- params is a promise that resolves to an object containing the dynamic route parameters (like id)
+- searchParams is a promise that resolves to an object containing the query parameters(like filters and sorting) (for query param ?)
+While page.tsx has access to both params and searchParams, layout.tsx only has access to params
+
+`import { use } from "react"`
+
+** async & await => server component **
+use() => cient component
+
+### Navigating Programmatically
+
+## Templates
+Templates are similar to layouts in that they are also UI shared between multiple pages in your app
+Whenever a user navigates between routes sharing a template, you get a completely fresh start
+- a new template component instance is mounted.
+- DOM elements are recreated
+- state is cleared
+- effects are re-synchronized
+Create a template by exporting a default React component from a template.js or template.tsx file
+Like layouts, templates need to accept a children prop to render the nested route segments
+
+## Special files
+page.tsx
+layout.tsx
+template.tsx  
+not-found.tsx
+loadig.tsx
+error.tsx => for error handling
+
+## loading.tsx
+This file helps us create loading states that users see while waiting for content to load in a specific route segment
+The loading states appear instantly when navigating, letting users know that the application is responsive and actively loading content
+
+## loading.tsx benefits
+1. It gives users immediate feedback when they navigate somewhere new
+This makes your app feel snappy and responsive, and users know their click actually did something.
+2. Next.js keeps shared layouts interactive while new content loads
+Users can still use things like navigation menus or sidebars even if the main content isn't ready yet
+
+error.tsx
+- It automatically wraps route segments and their nested children in a React Error Boundary
+- You can create custom error Uls for specific segments using the file-system hierarchy
+- It isolates errors to affected segments while keeping the rest of your app functional
+- It enables you to attempt to recover from an error without requiring a full page reload
+
+<!-- startTransition() -->
+This update is not urgent—do it in the background. 
+This helps avoid UI freezing during updates.

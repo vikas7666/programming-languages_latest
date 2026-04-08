@@ -1,6 +1,6 @@
 
-export const Header = () =>{
+export const Header = () => {
     return (
-        <header style={{backgroundColor:'skyblue'}}>Header</header>
+        <header style={{ backgroundColor: 'skyblue' }}>Header</header>
     )
 }

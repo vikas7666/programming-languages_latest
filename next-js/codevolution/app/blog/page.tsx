@@ -1,6 +1,11 @@
 import React from "react"
 
-export default function Blog() {
+export default async function Blog() {
+    await new Promise(resolve => {
+        setTimeout(() => {
+            resolve('interval delay')
+        }, 2000)
+    })
     return (
         <React.Fragment>
             <div>Hello blog</div>
