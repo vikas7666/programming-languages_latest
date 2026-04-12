@@ -199,6 +199,17 @@ error.tsx
 - It isolates errors to affected segments while keeping the rest of your app functional
 - It enables you to attempt to recover from an error without requiring a full page reload
 
-<!-- startTransition() -->
+## startTransition() 
 This update is not urgent—do it in the background. 
 This helps avoid UI freezing during updates.
+
+## Handling errors in nested routes
+Handling errors in nested routes
+Errors always bubble up to find the closest parent error boundary
+An error.tsx file handles errors not just for its own folder, but for all the nested ch segments below it too
+By strategically placing error.tsx files at different levels in your route folders, you can control exactly how detailed your error handling gets
+Where you put your error.tsx file makes a huge difference – it determines exactly which parts of your UI get affected when things go wrong.
+
+# Handling errors in layouts
+An error.tsx file will handle errors for all its nested child segments
+There's an interesting catch with layout.tsx components in the same segment
